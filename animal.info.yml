@@ -1,0 +1,4 @@
+name: Animals
+type: module
+description: 'Turns your site into a cute animal that needs attention.'
+core: 8.x

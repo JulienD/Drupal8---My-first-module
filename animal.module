@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * Entity URI callback.
+ */
+function animal_uri($animal) {
+  return array(
+    'path' => 'animal/' . $animal->id(),
+  );
+}
+
+
+/**
+ * Entity label callback.
+ *
+ * This label callback has langcode for security reasons. The username is the
+ * visual identifier for a user and needs to be consistent in all languages.
+ *
+ * @param $entity_type
+ *   The entity type.
+ * @param $entity
+ *   The entity object.
+ *
+ * @return
+ *   The name of the user.
+ *
+ * @see user_format_name()
+ */
+function animal_label($entity_type, $entity) {
+  return $entity->getAnimalName();
+}
+
+/**
+ * Implements hook_permission().
+ */
+function animal_permission() {
+  return array(
+    'administer animals' => array(
+      'title' => t('Administer animal'),
+    ),
+    'access animals' => array(
+      'title' => t('View comments'),
+    ),
+    'create animals' => array(
+      'title' => t('create animals'),
+    ),
+    'edit own animals' => array(
+      'title' => t('Edit own animals'),
+    ),
+  );
+}

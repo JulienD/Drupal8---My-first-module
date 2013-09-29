@@ -1,0 +1,9 @@
+# Schema for the configuration files of the User module.
+
+animal.settings:
+  type: mapping
+  label: 'Animal settings'
+  mapping:
+    anonymous:
+      type: label
+      label: 'Name'

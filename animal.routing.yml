@@ -1,0 +1,37 @@
+animal.add:
+  path: '/zoo/animal/add'
+  defaults:
+    _entity_form: 'animal.default'
+  requirements:
+    #_entity_access: animal.view
+    _permission: 'create animals'
+
+animal.edit:
+  path: '/zoo/animal/{animal}/edit'
+  defaults:
+    _entity_form: 'animal.default'
+  requirements:
+    _entity_access: 'animal.update'
+
+animal.delete:
+  path: '/zoo/animal/{animal}/delete'
+  defaults:
+    _entity_form: animal.delete
+  requirements:
+    _entity_access: animal.delete
+
+animal.page:
+  path: '/zoo/animal'
+  defaults:
+    _content: '\Drupal\animal\Controller\AnimalController::animalPage'
+  requirements:
+    _access: 'TRUE'
+
+animal.view:
+  path: '/zoo/animal/{animal}'
+  defaults:
+    _entity_view: 'animal.full'
+    _title_callback: 'Drupal\animal\Controller\AnimalController::animalTitle'
+  requirements:
+    user: \d+
+    _entity_access: 'animal.view'
